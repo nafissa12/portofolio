@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Kuis Bahasa Arab Interaktif</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; background-color: #f4f6f9; line-height: 1.6; }
+        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .arabic { font-size: 20px; direction: rtl; text-align: right; font-family: 'Traditional Arabic', 'Amiri', serif; }
+        .btn { display: block; width: 100%; text-align: left; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px; background: #fff; cursor: pointer; }
+        .btn:hover { background-color: #eef2f5; }
+        .correct { background-color: #d4edda !important; border-color: #c3e6cb; color: #155724; }
+        .wrong { background-color: #f8d7da !important; border-color: #f5c6cb; color: #721c24; }
+    </style>
+</head>
+<body>
+
+<h2>Latihan Soal Bahasa Arab Interaktif</h2>
+
+<div class="card">
+    <p><b>Soal 1:</b> مَا الفِكْرَةُ الرَّئِيسِيَّةُ مِنَ النَّصِّ؟</p>
+    <div class="arabic">
+        "يُعْتَبَرُ السَّفَرُ عَبْرَ الْوَسَائِلِ الْحَدِيثَةِ كَالطَّائِرَاتِ وَالسُّفُنِ مِنْ أَهَمِّ العَوَامِلِ الَّتِي تُسَاهِمُ فِي تَوْسِيعِ آَفَاقِ الإِنْسَانِ..."
+    </div>
+    <br>
+    <button class="btn" onclick="check(this, false)">A. إِعْدَادُ الأَطْعِمَةِ فِي المَطَارِ</button>
+    <button class="btn" onclick="check(this, true)">B. أَهَمِّيَّةُ السَّفَرِ وَإِجْرَاءَاتُهُ فِي المَطَارِ</button>
+    <button class="btn" onclick="check(this, false)">C. العِلَاجُ فِي المُسْتَشْفَى العَامِّ</button>
+    <button class="btn" onclick="check(this, false)">D. الدِّرَاسَةُ فِي المَدْرَسَةِ الثَّانَوِيَّةِ</button>
+</div>
+
+<div class="card">
+    <p><b>Soal 2:</b> مَا ضِدُّ كَلِمَةِ (الْحَدِيثَةِ)؟</p>
+    <button class="btn" onclick="check(this, false)">A. الْجَدِيدَةِ</button>
+    <button class="btn" onclick="check(this, true)">B. الْقَدِيمَةِ</button>
+    <button class="btn" onclick="check(this, false)">C. السَّرِيعَةِ</button>
+    <button class="btn" onclick="check(this, false)">D. الْكَبِيرَةِ</button>
+</div>
+
+<div class="card">
+    <p><b>Soal 3:</b> حَدِّدِ الكَلِمَةَ الَّتِي حَالَتُهَا "فِعْلٌ مُضَارِعٌ":</p>
+    <div class="arabic">"يَسْتَعْمِلُ الطَّالِبُ الحَاسُوبَ لِيَسْتَفِيدَ مِنْهُ فِي المَكْتَبَةِ."</div>
+    <br>
+    <button class="btn" onclick="check(this, false)">A. الطَّالِبُ</button>
+    <button class="btn" onclick="check(this, false)">B. الحَاسُوبَ</button>
+    <button class="btn" onclick="check(this, true)">C. يَسْتَعْمِلُ</button>
+    <button class="btn" onclick="check(this, false)">D. المَكْتَبَةِ</button>
+</div>
+
+<script>
+function check(btn, isCorrect) {
+    let parent = btn.parentElement;
+    let buttons = parent.querySelectorAll('.btn');
+    buttons.forEach(b => b.disabled = true);
+    if(isCorrect) {
+        btn.classList.add('correct');
+        btn.innerHTML += ' ✓ (Benar!)';
+    } else {
+        btn.classList.add('wrong');
+        btn.innerHTML += ' ✗ (Salah)';
+    }
+}
+</script>
+
+</body>
+</html>

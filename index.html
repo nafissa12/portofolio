@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio - Niswah Annafisah | SMK Negeri 3 Jepara</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: { DEFAULT: '#FAF7F2', soft: '#F4EFE6' },
+            sage: { DEFAULT: '#8A9A86', light: '#E2E8E0', dark: '#5C6B59' },
+            pinkpastel: { DEFAULT: '#E8B4B8', soft: '#FADBD8' },
+            maroon: { DEFAULT: '#800020', soft: '#A33850' },
+            tan: '#C4A484'
+          },
+          fontFamily: {
+            handwriting: ['"Dancing Script"', 'cursive'],
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { background-color: #FAF7F2; color: #4A4A4A; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .hero-bg {
+      background-image: linear-gradient(rgba(250, 247, 242, 0.4), rgba(250, 247, 242, 0.6)), 
+                        url('background.jpeg');
+      background-size: cover;
+      background-position: center;
+    }
+    .floral-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); border: 1px solid #E2E8E0; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-40 bg-cream/90 backdrop-blur-md border-b border-sage/20 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="#" onclick="showPage('beranda')" class="flex items-center gap-2">
+        <i data-lucide="flower-2" class="text-maroon w-6 h-6"></i>
+        <span class="font-serif font-bold text-xl text-maroon tracking-wide">ꦤꦥ꦳ꦶꦱꦃ</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex gap-6 font-medium text-sage-dark text-sm">
+        <button onclick="showPage('beranda')" class="hover:text-maroon transition">Beranda</button>
+        <button onclick="showPage('schoolwork')" class="hover:text-maroon transition">School Work</button>
+        <button onclick="showPage('proyek')" class="hover:text-maroon transition">Proyek Saya</button>
+        <button onclick="showPage('kontak')" class="hover:text-maroon transition">Kontak</button>
+      </div>
+
+      <!-- Mode Admin Button -->
+      <div class="flex items-center gap-2">
+        <button id="adminBtn" onclick="toggleAdminModal()" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-sage-light text-sage-dark border border-sage/40 hover:bg-sage hover:text-white transition flex items-center gap-1.5">
+          <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+          <span id="adminBtnText">Mode Pengelola</span>
+        </button>
+        
+        <button onclick="toggleMobileMenu()" class="md:hidden text-sage-dark p-1">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden bg-cream border-t border-sage/20 px-4 py-3 flex flex-col gap-3 font-medium text-sage-dark text-sm">
+      <button onclick="showPage('beranda'); toggleMobileMenu();" class="text-left">Beranda</button>
+      <button onclick="showPage('schoolwork'); toggleMobileMenu();" class="text-left">School Work</button>
+      <button onclick="showPage('proyek'); toggleMobileMenu();" class="text-left">Project</button>
+      <button onclick="showPage('kontak'); toggleMobileMenu();" class="text-left">contact</button>
+    </div>
+  </nav>
+
+  <!-- CONTENT PAGES -->
+  <main class="flex-grow">
+
+    <!-- PAGE 1: BERANDA -->
+    <section id="page-beranda" class="page-section">
+      <div class="hero-bg py-20 px-4 text-center border-b border-sage/20 relative">
+        <div class="max-w-3xl mx-auto space-y-4">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pinkpastel/30 text-maroon text-xs font-semibold tracking-wider uppercase border border-pinkpastel">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> E-Portofolio Skagara
+          </div>
+          <h1 class="font-serif text-6xl md:text-7xl font-bold text-maroon drop-shadow-sm tracking-tight">PORTOFOLIO</h1>
+          <h2 class="text-2xl md:text-3xl font-semibold text-sage-dark">Niswah Annafisah</h2>
+          <p class="text-maroon font-bold italic text-lg drop-shadow-sm">"XII TKJ2"</p>
+          </p>
+          <div class="pt-4">
+            <button onclick="showPage('schoolwork')" class="px-6 py-3 rounded-full bg-maroon text-white font-medium shadow-md hover:bg-maroon-soft transition transform hover:-translate-y-0.5 inline-flex items-center gap-2">
+              SCHOLL WORK<i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Perkenalan Singkat -->
+      <div class="max-w-5xl mx-auto px-4 py-16">
+        <div class="floral-card rounded-2xl p-8 shadow-sm grid md:grid-cols-12 gap-8 items-center border border-sage/20">
+          <div class="md:col-span-4 text-center">
+            <img id="introPhoto" src="fotosaya.jpeg" alt="Foto Profil Niswah" class="max-w-full h-auto max-h-64 mx-auto object-contain rounded-2xl">
+          </div>
+          <div class="md:col-span-8 space-y-3">
+            <span class="text-xs font-bold uppercase tracking-widest text-sage">Halo & Selamat Datang</span>
+            <h3 class="text-2xl font-bold text-maroon font-serif">Halo saya Niswah!</h3>
+            <p class="text-gray-600 leading-relaxed text-sm">
+              Tanaman tidak pernah terburu-buru untuk berbunga. la menguatkan akarnya terlebih dahulu, menerima hujan sebagai pelajaran, dan mencari cahaya sebagai arah. Dari sanalah saya belajar bahwa setiap proses memiliki waktunya sendiri.
+
+Saya Niswah Annafisah, siswi Teknik Komputer dan Jaringan yang percaya bahwa belajar adalah cara terbaik untuk terus bertumbuh. Melalui setiap pengalaman, tantangan, kesempatan, saya dan terus membangun kemampuan serta memperluas langkah menuju masa depan.
+
+Portofolio ini menjadi ruang untuk merangkum perjalanan tersebut-sebuah proses yang mungkin masih panjang, tetapi selalu bergerak menuju arah yang lebih baik
+            </p>
+          </div>
+        </div>
+
+        <!-- 3 Dekorasi Kartu -->
+        <div class="grid md:grid-cols-3 gap-6 mt-12">
+          <!-- Kartu 1: School Work -->
+          <div onclick="showPage('schoolwork')" class="bg-white/80 p-6 rounded-xl text-center border border-pinkpastel/40 shadow-sm space-y-2 cursor-pointer hover:border-maroon transition">
+            <div class="w-12 h-12 bg-pinkpastel/20 text-maroon rounded-full flex items-center justify-center mx-auto">
+              <i data-lucide="book-open" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-maroon tracking-wider text-sm uppercase">SCHOOL WORK</h4>
+            <p class="text-xs text-gray-500">Tugas demi tugas menjadi benih ilmu yang perlahan tumbuh.</p>
+          </div>
+
+          <!-- Kartu 2: Project -->
+          <div onclick="showPage('proyek')" class="bg-white/80 p-6 rounded-xl text-center border border-sage/40 shadow-sm space-y-2 cursor-pointer hover:border-sage-dark transition">
+            <div class="w-12 h-12 bg-sage-light text-sage-dark rounded-full flex items-center justify-center mx-auto">
+              <i data-lucide="cpu" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-sage-dark tracking-wider text-sm uppercase">PROJECT</h4>
+            <p class="text-xs text-gray-500">dari benih ide tumbuh karya yang berarti.</p>
+          </div>
+
+          <!-- Kartu 3: Kontak -->
+          <div onclick="showPage('kontak')" class="bg-white/80 p-6 rounded-xl text-center border border-pinkpastel/40 shadow-sm space-y-2 cursor-pointer hover:border-maroon transition">
+            <div class="w-12 h-12 bg-pinkpastel/20 text-maroon rounded-full flex items-center justify-center mx-auto">
+              <i data-lucide="mail" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-bold text-maroon tracking-wider text-sm uppercase">KONTAK</h4>
+            <p class="text-xs text-gray-500">Mari saling terhubung dan mengenal.</p>
+          </div>
+        </div>
+
+        <!-- Karya Terbaru -->
+        <div class="mt-16">
+          <div class="flex justify-between items-end mb-6">
+            <div>
+              <h3 class="text-2xl font-serif font-bold text-maroon">Karya & Tugas Terbaru</h3>
+              <p class="text-xs text-gray-500">Beberapa proyek pilihan dari ruang kelas dan laboratorium.</p>
+            </div>
+            <button onclick="showPage('proyek')" class="text-xs font-semibold text-sage-dark hover:text-maroon flex items-center gap-1">
+              Lihat Semua <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+          <div id="recentWorksGrid" class="grid md:grid-cols-3 gap-6"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2: SCHOOL WORK -->
+    <section id="page-schoolwork" class="page-section hidden max-w-6xl mx-auto px-4 py-12">
+      <!-- Tombol Kembali -->
+      <button onclick="showPage('beranda')" class="inline-flex items-center gap-1.5 text-xs font-semibold text-sage-dark hover:text-maroon transition mb-6 bg-white px-3 py-1.5 rounded-full border border-sage/20 shadow-sm">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> Kembali ke Beranda
+      </button>
+
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+        <div>
+          <h2 class="font-serif text-3xl font-bold text-maroon">School Work </h2>
+          <p class="text-xs text-gray-500">Berikut ini adalah kumpulan tugas  yang menjadi jejak proses tumbuh saya selama menempuh pendidikan di  SMK Negeri 3 Jepara, jurusan Teknik Komputer dan Jaringan. Layaknya tanaman yang berkembang melalui setiap musim, setiap tugas memberikan pengalaman, pengetahuan, dan keterampilan baru yang membentuk diri saya. Dari setiap proses pembelajaran, saya belajar untuk berpikir kritis, menghadapi tantangan, dan terus berkembang. Kumpulan tugas ini menjadi bukti dari langkah-langkah kecil yang saya tempuh dalam perjalanan bertumbuh sebagai siswi TKJ
+</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+          <!-- Kolom Pencarian Tugas & Mapel -->
+          <div class="relative w-full md:w-auto">
+            <input type="text" id="searchTugas" oninput="renderTugas()" placeholder="Cari judul tugas atau mapel..." class="w-full md:w-64 pl-9 pr-4 py-2 border border-sage/30 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-sage">
+            <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-2.5"></i>
+          </div>
+          <button id="addTugasBtn" onclick="openModal('Tugas')" class="hidden px-4 py-2 bg-maroon text-white text-sm rounded-lg font-medium hover:bg-maroon-soft transition flex items-center gap-1.5">
+            <i data-lucide="plus" class="w-4 h-4"></i> Tambah Tugas
+          </button>
+        </div>
+      </div>
+      <div id="tugasGrid" class="grid md:grid-cols-3 gap-6"></div>
+    </section>
+
+    <!-- PAGE 3: PROYEK SAYA -->
+    <section id="page-proyek" class="page-section hidden max-w-6xl mx-auto px-4 py-12">
+      <!-- Tombol Kembali -->
+      <button onclick="showPage('beranda')" class="inline-flex items-center gap-1.5 text-xs font-semibold text-sage-dark hover:text-maroon transition mb-6 bg-white px-3 py-1.5 rounded-full border border-sage/20 shadow-sm">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> Kembali ke Beranda
+      </button>
+
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+        <div>
+          <h2 class="font-serif text-3xl font-bold text-maroon">Proyek TKJ & Unggulan</h2>
+          <p class="text-xs text-gray-500">Hasil karya simulasi jaringan, proyek laboratorium, dan aplikasi.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+          <!-- Kolom Pencarian Proyek -->
+          <div class="relative w-full md:w-auto">
+            <input type="text" id="searchProyek" oninput="renderProyek()" placeholder="Cari proyek atau mapel..." class="w-full md:w-64 pl-9 pr-4 py-2 border border-sage/30 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-sage">
+            <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-2.5"></i>
+          </div>
+          <button id="addProyekBtn" onclick="openModal('Proyek')" class="hidden px-4 py-2 bg-maroon text-white text-sm rounded-lg font-medium hover:bg-maroon-soft transition flex items-center gap-1.5">
+            <i data-lucide="plus" class="w-4 h-4"></i> Tambah Proyek
+          </button>
+        </div>
+      </div>
+      <div id="proyekGrid" class="grid md:grid-cols-3 gap-6"></div>
+    </section>
+
+    <!-- PAGE 4: KONTAK -->
+    <section id="page-kontak" class="page-section hidden max-w-3xl mx-auto px-4 py-12">
+      <!-- Tombol Kembali -->
+      <button onclick="showPage('beranda')" class="inline-flex items-center gap-1.5 text-xs font-semibold text-sage-dark hover:text-maroon transition mb-6 bg-white px-3 py-1.5 rounded-full border border-sage/20 shadow-sm">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> Kembali ke Beranda
+      </button>
+
+      <div class="text-center mb-10">
+        <h2 class="font-serif text-3xl font-bold text-maroon">Hubungi Saya</h2>
+        <p class="text-xs text-gray-500">Mari terhubung untuk berdiskusi, bertaut, atau berkolaborasi</p>
+      </div>
+      <div class="bg-white/90 p-8 rounded-2xl border border-sage/20 shadow-sm space-y-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="p-4 rounded-xl border border-sage/20 flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-pinkpastel/30 text-maroon flex items-center justify-center">
+              <i data-lucide="mail" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-gray-500">Email</div>
+              <div class="text-sm font-semibold text-gray-800">niswahtkj2009@gmail.com</div>
+            </div>
+          </div>
+          <a href="https://www.instagram.com/nnafiswaa" target="_blank" class="p-4 rounded-xl border border-sage/20 flex items-center gap-4 hover:border-maroon transition">
+  <div class="w-10 h-10 rounded-full bg-sage-light text-sage-dark flex items-center justify-center">
+    <i data-lucide="instagram" class="w-5 h-5"></i>
+  </div>
+  <div>
+    <div class="text-xs font-bold text-gray-500">Instagram</div>
+    <div class="text-sm font-semibold text-gray-800">@nnafiswaa</div>
+  </div>
+</a>
+        <div class="p-4 rounded-xl border border-sage/20 flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-pinkpastel/30 text-maroon flex items-center justify-center">
+            <i data-lucide="map-pin" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-xs font-bold text-gray-500">Sekolah</div>
+            <div class="text-sm font-semibold text-gray-800">SMK Negeri 3 Jepara (Jurusan TKJ)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODALS -->
+
+  <!-- MODAL LOGIN ADMIN -->
+  <div id="loginModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-xl border border-sage/20 space-y-4">
+      <div class="text-center">
+        <div class="w-12 h-12 bg-pinkpastel/30 text-maroon rounded-full flex items-center justify-center mx-auto mb-2">
+          <i data-lucide="lock" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-serif text-xl font-bold text-maroon">Masuk Mode Pengelola</h3>
+        <p class="text-xs text-gray-500">Masukkan kata sandi pengelola untuk mengelola konten.</p>
+      </div>
+      <div>
+        <input type="password" id="adminPassword" placeholder="Masukkan kata sandi pengelola" class="w-full px-4 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-sage outline-none">
+      </div>
+      <div class="flex justify-end gap-2">
+        <button type="button" onclick="closeAdminModal()" class="px-4 py-2 text-xs font-medium text-gray-500 hover:bg-gray-100 rounded-lg">Batal</button>
+        <button type="button" onclick="loginAdmin()" class="px-4 py-2 text-xs font-semibold bg-maroon text-white rounded-lg hover:bg-maroon-soft">Masuk</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL FORM KONTEN -->
+  <div id="contentModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-xl border border-sage/20 space-y-4 my-8">
+      <div class="flex justify-between items-center border-b pb-3">
+        <h3 id="modalTitle" class="font-serif text-xl font-bold text-maroon">Tambah Konten</h3>
+        <button type="button" onclick="closeModal()" class="text-gray-400 hover:text-gray-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <form id="contentForm" onsubmit="saveContent(event)" class="space-y-3 text-xs">
+        <input type="hidden" id="itemId">
+        <input type="hidden" id="itemType">
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1">Judul Karya / Tugas</label>
+          <input type="text" id="itemTitle" required class="w-full px-3 py-2 border rounded-lg outline-none focus:ring-1 focus:ring-sage">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-gray-700 mb-1">Kategori / Mapel</label>
+            <input type="text" id="itemCategory" placeholder="contoh: Mikrotik, AIJ, ASJ" required class="w-full px-3 py-2 border rounded-lg outline-none focus:ring-1 focus:ring-sage">
+          </div>
+        </div>
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1">Deskripsi Ringkas</label>
+          <textarea id="itemDesc" rows="3" required class="w-full px-3 py-2 border rounded-lg outline-none focus:ring-1 focus:ring-sage"></textarea>
+        </div>
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1">URL Gambar Sampul</label>
+          <input type="text" id="itemImgUrl" placeholder="https://..." class="w-full px-3 py-2 border rounded-lg outline-none focus:ring-1 focus:ring-sage">
+        </div>
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1">Tautan Pendukung (Opsional)</label>
+          <input type="text" id="itemLink" placeholder="Tautan Google Drive / GitHub" class="w-full px-3 py-2 border rounded-lg outline-none focus:ring-1 focus:ring-sage">
+        </div>
+        <div class="flex justify-end gap-2 pt-3 border-t">
+          <button type="button" onclick="closeModal()" class="px-4 py-2 text-gray-500 font-medium hover:bg-gray-100 rounded-lg">Batal</button>
+          <button type="submit" class="px-4 py-2 bg-maroon text-white font-medium rounded-lg hover:bg-maroon-soft">Simpan Karya</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL DETAIL -->
+  <div id="detailModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-xl w-full p-6 shadow-xl border border-sage/20 space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-start">
+        <div>
+          <span id="detailCategory" class="px-2.5 py-0.5 rounded-full bg-sage-light text-sage-dark text-[10px] font-bold uppercase">Kategori</span>
+          <h3 id="detailTitle" class="font-serif text-2xl font-bold text-maroon mt-1">Judul Detail</h3>
+          <p id="detailDate" class="text-xs text-gray-400">24 Oktober 2026</p>
+        </div>
+        <button type="button" onclick="closeDetailModal()" class="text-gray-400 hover:text-gray-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <div class="rounded-xl overflow-hidden max-h-64 border border-gray-100">
+        <img id="detailImg" src="" class="w-full h-full object-cover">
+      </div>
+      <div>
+        <h4 class="font-bold text-xs uppercase text-gray-500 mb-1">Deskripsi Lengkap</h4>
+        <p id="detailDesc" class="text-sm text-gray-700 whitespace-pre-line leading-relaxed"></p>
+      </div>
+      <div id="detailLinkContainer" class="pt-2">
+        <a id="detailLink" href="#" target="_blank" class="inline-flex items-center gap-1.5 px-4 py-2 bg-sage text-white text-xs font-semibold rounded-lg hover:bg-sage-dark transition">
+          <i data-lucide="external-link" class="w-4 h-4"></i> Buka Tautan/File Proyek
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT UTAMA -->
+  <script>
+    const initialItems = [
+      {
+        id: '1',
+        type: 'Proyek',
+        title: 'Konfigurasi MikroTik RouterBOARD & VLAN',
+        category: 'Administrasi Infrastruktur Jaringan',
+        date: '2026-09-15',
+        desc: 'Simulasi dan praktik langsung manajemen bandwidth (Queue Tree), Firewall Filtering, serta pembagian VLAN.',
+        imgUrl: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop',
+        link: 'https://github.com'
+      },
+      {
+        id: '2',
+        type: 'Proyek',
+        title: 'Desain Topologi WAN Cisco Packet Tracer',
+        category: 'Teknologi Jaringan Berbasis Luas',
+        date: '2026-08-20',
+        desc: 'Merancang arsitektur jaringan antar cabang dengan protokol routing OSPF, BGP, serta NAT translation.',
+        imgUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop',
+        link: ''
+      },
+      {
+        id: '3',
+        type: 'Tugas',
+        title: 'Laporan Instalasi Debian Server 12',
+        category: 'Administrasi Sistem Jaringan',
+        date: '2026-10-05',
+        desc: 'Panduan teknis langkah demi langkah mengonfigurasi Web Server Apache2, DNS Bind9, dan SSH Server di OS Linux.',
+        imgUrl: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=800&auto=format&fit=crop',
+        link: ''
+      }
+    ];
+
+    let items = JSON.parse(localStorage.getItem('niswah_portfolio_items')) || initialItems;
+    let isAdmin = false;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      renderAll();
+    });
+
+    function showPage(pageId) {
+      document.querySelectorAll('.page-section').forEach(sec => sec.classList.add('hidden'));
+      document.getElementById(`page-${pageId}`).classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+
+    // MODE PENGELOLA / ADMIN
+    function toggleAdminModal() {
+      if (isAdmin) {
+        isAdmin = false;
+        document.getElementById('adminBtnText').innerText = 'Mode Pengelola';
+        document.getElementById('addTugasBtn').classList.add('hidden');
+        document.getElementById('addProyekBtn').classList.add('hidden');
+        alert('Kamu telah keluar dari Mode Pengelola.');
+        renderAll();
+      } else {
+        document.getElementById('loginModal').classList.remove('hidden');
+      }
+    }
+
+    function closeAdminModal() {
+      document.getElementById('loginModal').classList.add('hidden');
+      document.getElementById('adminPassword').value = '';
+    }
+
+    function loginAdmin() {
+      const pwInput = document.getElementById('adminPassword');
+      
+      // Kata sandi pengelola: niswahanaktkj
+      if (pwInput && pwInput.value === 'niswahanaktkj') {
+        isAdmin = true;
+        document.getElementById('adminBtnText').innerText = 'Keluar Admin';
+        closeAdminModal();
+        
+        document.getElementById('addTugasBtn').classList.remove('hidden');
+        document.getElementById('addProyekBtn').classList.remove('hidden');
+        
+        alert('Berhasil masuk Mode Pengelola!');
+        renderAll();
+      } else {
+        alert('Kata sandi salah! Masukkan kata sandi yang benar.');
+      }
+    }
+
+    // RENDER FUNCTIONS & CARI MAPEL
+    function renderAll() {
+      renderRecent();
+      renderTugas();
+      renderProyek();
+      lucide.createIcons();
+    }
+
+    function createCardHTML(item) {
+      return `
+        <div class="bg-white rounded-xl overflow-hidden border border-sage/20 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <div class="h-44 overflow-hidden relative">
+              <img src="${item.imgUrl || 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc'}" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full text-[10px] font-bold text-maroon uppercase tracking-wider">
+                ${item.category}
+              </span>
+            </div>
+            <div class="p-5 space-y-2">
+              <div class="text-[11px] font-semibold text-gray-400">${item.date}</div>
+              <h4 class="font-serif font-bold text-lg text-gray-800 line-clamp-1">${item.title}</h4>
+              <p class="text-xs text-gray-600 line-clamp-2 leading-relaxed">${item.desc}</p>
+            </div>
+          </div>
+          <div class="p-5 pt-0 flex justify-between items-center border-t border-gray-50 mt-2">
+            <button onclick="openDetailModal('${item.id}')" class="text-xs font-bold text-sage-dark hover:text-maroon flex items-center gap-1">
+              Lihat Detail <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+            ${isAdmin ? `
+              <div class="flex gap-1">
+                <button onclick="editItem('${item.id}')" class="p-1.5 text-blue-600 hover:bg-blue-50 rounded"><i data-lucide="edit-2" class="w-4 h-4"></i></button>
+                <button onclick="deleteItem('${item.id}')" class="p-1.5 text-red-600 hover:bg-red-50 rounded"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderRecent() {
+      const grid = document.getElementById('recentWorksGrid');
+      if (grid) grid.innerHTML = items.slice(0, 3).map(item => createCardHTML(item)).join('');
+    }
+
+    function renderTugas() {
+      const search = document.getElementById('searchTugas')?.value.toLowerCase() || '';
+      const filtered = items.filter(i => i.type === 'Tugas' && (i.title.toLowerCase().includes(search) || i.category.toLowerCase().includes(search)));
+      const grid = document.getElementById('tugasGrid');
+      if (grid) grid.innerHTML = filtered.length ? filtered.map(i => createCardHTML(i)).join('') : `<p class="text-xs text-gray-400 col-span-3">Tidak ada tugas atau mapel yang cocok.</p>`;
+    }
+
+    function renderProyek() {
+      const search = document.getElementById('searchProyek')?.value.toLowerCase() || '';
+      const filtered = items.filter(i => i.type === 'Proyek' && (i.title.toLowerCase().includes(search) || i.category.toLowerCase().includes(search)));
+      const grid = document.getElementById('proyekGrid');
+      if (grid) grid.innerHTML = filtered.length ? filtered.map(i => createCardHTML(i)).join('') : `<p class="text-xs text-gray-400 col-span-3">Tidak ada proyek atau mapel yang cocok.</p>`;
+    }
+
+    // FORM ACTION
+    function openModal(type) {
+      document.getElementById('contentForm').reset();
+      document.getElementById('itemId').value = '';
+      document.getElementById('itemType').value = type;
+      document.getElementById('modalTitle').innerText = `Tambah ${type}`;
+      document.getElementById('contentModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('contentModal').classList.add('hidden');
+    }
+
+    function saveContent(e) {
+      e.preventDefault();
+      const id = document.getElementById('itemId').value || Date.now().toString();
+      const type = document.getElementById('itemType').value;
+      const title = document.getElementById('itemTitle').value;
+      const category = document.getElementById('itemCategory').value;
+      const desc = document.getElementById('itemDesc').value;
+      let imgUrl = document.getElementById('itemImgUrl').value || 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=800&auto=format&fit=crop';
+      const link = document.getElementById('itemLink').value;
+
+      const newItem = { id, type, title, category, desc, imgUrl, link };
+
+      const existingIndex = items.findIndex(i => i.id === id);
+      if (existingIndex > -1) {
+        items[existingIndex] = newItem;
+      } else {
+        items.unshift(newItem);
+      }
+
+      localStorage.setItem('niswah_portfolio_items', JSON.stringify(items));
+      closeModal();
+      renderAll();
+    }
+
+    function editItem(id) {
+      const item = items.find(i => i.id === id);
+      if (!item) return;
+
+      document.getElementById('itemId').value = item.id;
+      document.getElementById('itemType').value = item.type;
+      document.getElementById('itemTitle').value = item.title;
+      document.getElementById('itemCategory').value = item.category;
+      document.getElementById('itemDesc').value = item.desc;
+      document.getElementById('itemImgUrl').value = item.imgUrl;
+      document.getElementById('itemLink').value = item.link || '';
+
+      document.getElementById('modalTitle').innerText = `Edit ${item.type}`;
+      document.getElementById('contentModal').classList.remove('hidden');
+    }
+
+    function deleteItem(id) {
+      if (confirm('Apakah kamu yakin ingin menghapus konten ini?')) {
+        items = items.filter(i => i.id !== id);
+        localStorage.setItem('niswah_portfolio_items', JSON.stringify(items));
+        renderAll();
+      }
+    }
+
+    function openDetailModal(id) {
+      const item = items.find(i => i.id === id);
+      if (!item) return;
+
+      document.getElementById('detailTitle').innerText = item.title;
+      document.getElementById('detailCategory').innerText = item.category;
+      document.getElementById('detailDate').innerText = item.date;
+      document.getElementById('detailDesc').innerText = item.desc;
+      document.getElementById('detailImg').src = item.imgUrl;
+
+      const linkBtn = document.getElementById('detailLinkContainer');
+      if (item.link) {
+        linkBtn.classList.remove('hidden');
+        document.getElementById('detailLink').href = item.link;
+      } else {
+        linkBtn.classList.add('hidden');
+      }
+
+      document.getElementById('detailModal').classList.remove('hidden');
+    }
+
+    function closeDetailModal() {
+      document.getElementById('detailModal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
